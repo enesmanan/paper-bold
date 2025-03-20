@@ -1,7 +1,5 @@
 # Paper Bold AI
 
-## Project Overview
-
 Paper Bold AI is an AI-powered web application designed for academic paper analysis. Built with a Retrieval Augmented Generation (RAG) architecture, it helps researchers and students efficiently extract key insights from complex academic papers in PDF format.
 
 The application addresses the time-consuming challenge of understanding lengthy research papers by providing instant summaries, identifying technical approaches, and enabling conversational Q&A about the paper's content.
@@ -92,7 +90,7 @@ Please get in touch if you have any questions about the project.
 - **GitHub:** [github.com/enesmanan](https://github.com/enesmanan)
 - **LinkedIn:** [linkedin.com/in/enesfehmimanan](https://linkedin.com/in/enesfehmimanan)
 
-## Repository Structure
+## Project Structure
 
 ```
 paper-bold/
