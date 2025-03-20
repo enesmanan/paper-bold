@@ -48,9 +48,9 @@ def ensure_directories_exist():
         os.makedirs(CHROMA_DIR)
 
 
-ensure_directories_exist()
+reset_storage()
 
-# reset_storage()
+ensure_directories_exist()
 
 # PDF size limit (e.g. 10MB)
 MAX_PDF_SIZE = 10 * 1024 * 1024  # bytes
@@ -64,7 +64,7 @@ def process_pdf(pdf_path, lang="tr"):
         text += page.extract_text()
 
     # Request summary from Gemini
-    model = genai.GenerativeModel(model_name)
+    model = genai.GenerativeModel(model_name, generation_config={"temperature": 0.1})
 
     # Request summary and text analysis based on language selection
     if lang == "tr":
@@ -120,8 +120,7 @@ def process_pdf(pdf_path, lang="tr"):
 
 
 def extract_models_from_text(text, lang):
-    """Extracts models used from the text"""
-    model = genai.GenerativeModel(model_name)
+    model = genai.GenerativeModel(model_name, generation_config={"temperature": 0.1})
 
     if lang == "tr":
         prompt = """
@@ -212,7 +211,10 @@ def chat():
 
     # Get more accurate answers by adding system prompt to the Gemini model
     llm = ChatGoogleGenerativeAI(
-        model=model_name, google_api_key=GOOGLE_API_KEY, system_prompt=system_prompt
+        model=model_name, 
+        google_api_key=GOOGLE_API_KEY, 
+        system_prompt=system_prompt,
+        temperature=0.1
     )
 
     qa_chain = ConversationalRetrievalChain.from_llm(
