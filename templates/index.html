@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Bold AI - PDF Görüntüleyici</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Paper Bold AI" class="logo-image">
+        </div>
+        <div class="language-selector">
+            <button class="language-btn active" data-lang="tr">TR</button>
+            <button class="language-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hero-section">
+            <h1 id="trTitle">Akademik makalelerin <span class="highlight">özünü</span> keşfedin</h1>
+            <h1 id="enTitle" style="display: none;">Discover the <span class="highlight">essence</span> of academic papers</h1>
+            <p id="trSubtitle">Yapay zeka destekli akıllı makale analizi</p>
+            <p id="enSubtitle" style="display: none;">AI-powered smart article analysis</p>
+        </div>
+        <div class="upload-container">
+            <form method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="lang" id="langInput" value="tr">
+                <div class="file-input-container">
+                    <input type="file" name="pdf_file" id="pdf_file" accept=".pdf" required>
+                    <label for="pdf_file">
+                        <div class="upload-content">
+                            <div class="upload-icon-wrapper">
+                                <span class="upload-icon">📄</span>
+                            </div>
+                            <span id="trUploadText">PDF Dosyanızı Buraya Sürükleyin</span>
+                            <span id="enUploadText" style="display: none;">Drag Your PDF File Here</span>
+                            <span id="trUploadSubtext">veya dosya seçmek için tıklayın</span>
+                            <span id="enUploadSubtext" style="display: none;">or click to select a file</span>
+                        </div>
+                    </label>
+                </div>
+                <button type="submit">
+                    <span id="trButtonText">Yükle ve Görüntüle</span>
+                    <span id="enButtonText" style="display: none;">Upload and View</span>
+                    <span class="button-icon">→</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Language switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageBtns = document.querySelectorAll('.language-btn');
+            const langInput = document.getElementById('langInput');
+            
+            languageBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Update active button class
+                    languageBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Transfer language value to hidden input
+                    langInput.value = lang;
+                    
+                    // Update content
+                    if (lang === 'tr') {
+                        // Show Turkish texts, hide English texts
+                        document.getElementById('trTitle').style.display = 'block';
+                        document.getElementById('trSubtitle').style.display = 'block';
+                        document.getElementById('trUploadText').style.display = 'block';
+                        document.getElementById('trUploadSubtext').style.display = 'block';
+                        document.getElementById('trButtonText').style.display = 'inline';
+                        
+                        document.getElementById('enTitle').style.display = 'none';
+                        document.getElementById('enSubtitle').style.display = 'none';
+                        document.getElementById('enUploadText').style.display = 'none';
+                        document.getElementById('enUploadSubtext').style.display = 'none';
+                        document.getElementById('enButtonText').style.display = 'none';
+                    } else {
+                        // Show English texts, hide Turkish texts
+                        document.getElementById('enTitle').style.display = 'block';
+                        document.getElementById('enSubtitle').style.display = 'block';
+                        document.getElementById('enUploadText').style.display = 'block';
+                        document.getElementById('enUploadSubtext').style.display = 'block';
+                        document.getElementById('enButtonText').style.display = 'inline';
+                        
+                        document.getElementById('trTitle').style.display = 'none';
+                        document.getElementById('trSubtitle').style.display = 'none';
+                        document.getElementById('trUploadText').style.display = 'none';
+                        document.getElementById('trUploadSubtext').style.display = 'none';
+                        document.getElementById('trButtonText').style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
