@@ -4,9 +4,8 @@ Paper Bold AI is an AI-powered web application designed for academic paper analy
 
 The application addresses the time-consuming challenge of understanding lengthy research papers by providing instant summaries, identifying technical approaches, and enabling conversational Q&A about the paper's content.
 
-## RAG Architecture
 
-Paper Bold AI implements a complete RAG pipeline:
+**Paper Bold AI implements a complete RAG pipeline:**
 
 1. **Content Extraction**: Converts PDF documents to text using PyPDF2
 2. **Intelligent Chunking**: Dynamically segments text based on document size and structure
@@ -17,10 +16,10 @@ Paper Bold AI implements a complete RAG pipeline:
 
 ## Deploy Link
 
-[https://paper-bold.onrender.com/](https://paper-bold.onrender.com/)
+- [https://paper-bold.onrender.com/](https://paper-bold.onrender.com/)
 
 
-<img src="https://github.com/user-attachments/assets/b08ab000-a645-43cd-b53f-c441119cf874" width="800">
+<img src="https://github.com/user-attachments/assets/b08ab000-a645-43cd-b53f-c441119cf874" width="700">
 
 
 ## Dataset
