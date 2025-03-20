@@ -21,6 +21,10 @@ Paper Bold AI implements a complete RAG pipeline:
 
 [https://paper-bold.onrender.com/](https://paper-bold.onrender.com/)
 
+
+<img src="https://github.com/user-attachments/assets/b08ab000-a645-43cd-b53f-c441119cf874" width="800">
+
+
 ## Dataset
 
 This application processes PDF files uploaded by users. No pre-prepared dataset is used. Each PDF is processed after upload and converted into a vector database.
